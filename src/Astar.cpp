@@ -64,8 +64,8 @@ shared_ptr<Square> Astar::getClosestSquare()
 					!graph->getSquare(i, j)->isWall() &&
 
 					(closestSquare_THREAD == nullptr ||
-					graph->getEnd()->getX() - graph->getStart()->getX() >= 0 && graph->getSquare(i, j)->getDistance() <= closestSquare_THREAD->getDistance() ||
-					graph->getEnd()->getX() - graph->getStart()->getX() < 0 && graph->getSquare(i, j)->getDistance() < closestSquare_THREAD->getDistance()))
+					(graph->getEnd()->getX() - graph->getStart()->getX() >= 0 && graph->getSquare(i, j)->getDistance() <= closestSquare_THREAD->getDistance()) ||
+					(graph->getEnd()->getX() - graph->getStart()->getX() < 0 && graph->getSquare(i, j)->getDistance() < closestSquare_THREAD->getDistance())))
 				{
 					closestSquare_THREAD = graph->getSquare(i, j);
 				}
@@ -76,8 +76,8 @@ shared_ptr<Square> Astar::getClosestSquare()
 		#pragma omp critical
 		{
 			if (closestSquare_THREAD != nullptr && (closestSquare == nullptr ||
-				graph->getEnd()->getX() - graph->getStart()->getX() >= 0 && closestSquare_THREAD->getDistance() <= closestSquare->getDistance() ||
-				graph->getEnd()->getX() - graph->getStart()->getX() < 0 && closestSquare_THREAD->getDistance() < closestSquare->getDistance()))
+				(graph->getEnd()->getX() - graph->getStart()->getX() >= 0 && closestSquare_THREAD->getDistance() <= closestSquare->getDistance()) ||
+				(graph->getEnd()->getX() - graph->getStart()->getX() < 0 && closestSquare_THREAD->getDistance() < closestSquare->getDistance())))
 			{
 				closestSquare = closestSquare_THREAD;
 			}
