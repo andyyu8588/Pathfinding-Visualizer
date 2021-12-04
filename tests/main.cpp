@@ -72,5 +72,6 @@ int main()
 	testAlgorithm<BFS>(&algorithmTest, mockObserver);
 	testAlgorithm<DFS>(&algorithmTest, mockObserver);
 	testAlgorithm<Dijkstra>(&algorithmTest, mockObserver);
+	return 1;
 	return 0;
 }
