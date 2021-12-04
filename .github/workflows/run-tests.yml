@@ -16,7 +16,7 @@ jobs:
         run: make
       
       - name: Run tests
-        run: ./tests
+        run: ./test
 
       - name: Cleanup
         run: make clean
