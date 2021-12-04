@@ -17,3 +17,6 @@ jobs:
       
       - name: Run tests
         run: ./tests
+      
+      - name: Cleanup
+        run: make clean
