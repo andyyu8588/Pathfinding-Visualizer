@@ -9,7 +9,7 @@ This is a desktop application to help programmers visualize different pathfindin
 - BFS
 - Bidirectional
 
-Try it out in `./build/Pathfinding Visualizer.exe`
+Try it out [here](https://github.com/andyyu8588/Pathfinding-Visualizer/releases)
 
 ### Demo
 
