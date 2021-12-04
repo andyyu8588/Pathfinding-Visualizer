@@ -346,3 +346,6 @@ Pathfinding-Visualizer/*.filters
 *.sln
 *.vcxproj
 *.filters
+
+# Ignore build
+build/
