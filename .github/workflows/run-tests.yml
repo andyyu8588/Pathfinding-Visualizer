@@ -9,9 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Debug
+        run: ls
+
       - name: Navigate to tests
         run: cd tests
 
+      - name: Debug
+        run: ls
+ 
       - name: Create Build
         run: make
       
