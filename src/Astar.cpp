@@ -75,9 +75,9 @@ shared_ptr<Square> Astar::getClosestSquare()
 		// comparing the closest square found from each thread to find the common (or global) closest square between them 4:
 		#pragma omp critical
 		{
-			if (closestSquare == nullptr ||
+			if (closestSquare_THREAD != nullptr && (closestSquare == nullptr ||
 				graph->getEnd()->getX() - graph->getStart()->getX() >= 0 && closestSquare_THREAD->getDistance() <= closestSquare->getDistance() ||
-				graph->getEnd()->getX() - graph->getStart()->getX() < 0 && closestSquare_THREAD->getDistance() < closestSquare->getDistance())
+				graph->getEnd()->getX() - graph->getStart()->getX() < 0 && closestSquare_THREAD->getDistance() < closestSquare->getDistance()))
 			{
 				closestSquare = closestSquare_THREAD;
 			}
